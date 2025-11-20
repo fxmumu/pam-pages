@@ -1,0 +1,10 @@
+# Cloudflare Pages Redirects
+# https://developers.cloudflare.com/pages/configuration/redirects/
+
+# Redirect common paths to index
+/privacy /index.html 200
+/privacy-policy /index.html 200
+/policy /index.html 200
+
+# Ensure index.html is served for root
+/ /index.html 200
