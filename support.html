@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>PhotoAlbumManager — 技术支持</title>
+  <title>PicSeek — 技术支持</title>
   <style>
     body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial; color:#111; line-height:1.6; padding:24px; max-width:1000px; margin:0 auto }
     h1 { font-size:28px; margin-bottom:6px }
@@ -20,7 +20,7 @@
   <h1>技术支持</h1>
   <div class="muted">最后更新：2025-11-20</div>
 
-  <p>感谢使用 PhotoAlbumManager（应用展示名可能随地区/语言不同，请参阅应用商店页面）。本页收集常见问题、故障排查步骤与如何向我们报告问题的说明，方便您快速定位与解决问题，或将必要信息提供给我们以便排查。</p>
+  <p>感谢使用 PicSeek（应用展示名可能随地区/语言不同，请参阅应用商店页面）。本页收集常见问题、故障排查步骤与如何向我们报告问题的说明，方便您快速定位与解决问题，或将必要信息提供给我们以便排查。</p>
 
   <div class="section">
     <h2>联系与报告问题</h2>
@@ -60,30 +60,12 @@
       <li>如果仍有问题，请把购买凭证截图或 App Store 订单 ID 发给我们，我们将协助核查。</li>
     </ul>
 
-    <h3>4) 条款 / 隐私页面未加载</h3>
-    <p>应用内条款尝试先加载内置的 `Docs/terms.html`（若已打包），若未打包则回退到在线托管页面。若您在设备上看不到条款，请确认应用是否包含该 HTML 文件（开发者需在 Xcode 的 Build Phases → Copy Bundle Resources 中添加）。</p>
-  </div>
-
-  <div class="section">
-    <h2>收集日志与诊断信息</h2>
-    <p>在排查复杂问题时，日志非常有帮助。以下为常用方法：</p>
-    <ul>
-      <li>使用 <strong>Console.app</strong>（通过 macOS 的“控制台”应用）连接设备并重现问题，导出筛选后的日志。</li>
-      <li>在 iOS 上，可按音量 + 电源触发屏幕截图并使用系统诊断，但请仅在确认没有敏感信息时再发送给我们。</li>
-      <li>开发者可在 Xcode 中运行 App 并查看控制台输出：
-        <pre>xcodebuild -project PhotoAlbumManager.xcodeproj -scheme PhotoAlbumManager -configuration Debug -sdk iphonesimulator -destination 'platform=iOS Simulator,name=iPhone 16' build</pre>
-      </li>
-    </ul>
   </div>
 
   <div class="section">
     <h2>关于隐私</h2>
-    <p>默认情况下，除与购买相关的收据信息外，应用不会将您的相册、标签或索引上传到我们的服务器。若启用可选的云备份/同步，应用会明确说明并在该功能页面取得您的许可。更多信息请参阅我们的 <a href="../Docs/index.html">隐私政策</a> 与 <a href="terms.html">服务条款</a>。</p>
+    <p>默认情况下，除与购买相关的收据信息外，应用不会将您的相册、标签或索引上传到我们的服务器。若启用可选的云备份/同步，应用会明确说明并在该功能页面取得您的许可。更多信息请参阅我们的 <a href="privacy_policy.html">隐私政策</a> 与 <a href="terms.html">服务条款</a>。</p>
   </div>
 
-  <footer class="muted">
-    <p>联系方式：<a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
-    <p>法律与合规：本页为技术支持说明，不构成法律意见。若需法律咨询，请联系专业律师。</p>
-  </footer>
 </body>
 </html>
