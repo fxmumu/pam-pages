@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>PicSeek — Support</title>
+  <style>
+    body { font-family: -apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial; color:#111; line-height:1.6; padding:24px; max-width:1000px; margin:0 auto }
+    h1 { font-size:28px; margin-bottom:6px }
+    h2 { font-size:18px; margin-top:20px }
+    p, li { color:#333 }
+    ul { margin:6px 0 12px 20px }
+    .muted { color:#666; font-size:13px }
+    pre { background:#f6f8fb; padding:12px; border-radius:6px; overflow:auto }
+    a { color:#0b6ef5 }
+    .section { margin-bottom:18px }
+  </style>
+</head>
+<body>
+  <h1>Support</h1>
+  <div class="muted">Last updated: 2025-11-20 · <a href="support.html" hreflang="zh-Hans">中文</a></div>
+
+  <p>Thanks for using PicSeek (the display name may vary by region/language; please refer to the App Store listing). This page collects common questions, troubleshooting steps, and guidance on how to report issues so you can resolve problems quickly or provide the necessary information for us to investigate.</p>
+
+  <div class="section">
+    <h2>Contact & Issue Reporting</h2>
+    <p>If you need to contact us, please email: <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
+    <p>When reporting a problem, please include:</p>
+    <ul>
+      <li>A description of the issue (what happened vs. what you expected).</li>
+      <li>Steps to reproduce (as specific as possible).</li>
+      <li>Device details: iPhone model, iOS version, App version (visible in Settings).</li>
+      <li>Whether the app has access to Photos, and whether “Optimize iPhone Storage” / iCloud Photos is enabled.</li>
+      <li>Relevant screenshots or sample files if applicable (please avoid sharing sensitive photos).</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h2>Common Issues & Quick Fixes</h2>
+    <h3>1) Can’t load original / PHPhotosErrorDomain 3303</h3>
+    <p>This commonly happens when the photo is stored in iCloud and the full original hasn’t been downloaded to the device. Try:</p>
+    <ul>
+      <li>Make sure your device is online and the app is allowed to use the network (Wi‑Fi / Cellular).</li>
+      <li>Check “Settings → Photos” to see whether “Optimize iPhone Storage” is enabled. If needed, temporarily switch to “Download and Keep Originals” to test.</li>
+      <li>In the Photos app, open the same item and confirm the original can be downloaded.</li>
+      <li>Developer note: verify your photo request allows network access (PHImageRequestOptions.isNetworkAccessAllowed).</li>
+    </ul>
+
+    <h3>2) Thumbnails / previews missing or low quality</h3>
+    <ul>
+      <li>This can be affected by requested target size and caching strategy; closing and reopening the album may trigger a refresh.</li>
+      <li>Check “Settings → Privacy & Security → Photos” and confirm this app has photo access.</li>
+    </ul>
+
+    <h3>3) Purchase / subscription issues (purchase failed / restore failed / receipt-related)</h3>
+    <ul>
+      <li>In-app purchases are completed via Apple’s App Store. For purchase/refund status, please check your Apple orders and receipts first.</li>
+      <li>To restore purchases: use the “Restore Purchases” button in the app’s Settings (or check your App Store purchase history).</li>
+      <li>If the issue persists, please send us a screenshot of the purchase proof or the App Store Order ID and we’ll help verify it.</li>
+    </ul>
+
+    <h3>4) Why can search results include unrelated items?</h3>
+    <p>PicSeek is built around “similarity matching”. The app converts photo content (and available text information) into numeric features, then finds items that look most similar across your library. Because similarity is an approximation, some shared visual/text cues may be mistaken as relevant, for example:</p>
+    <p>In addition, similarity search typically sorts results by similarity and returns the “top N most similar” items (N is determined by the system or by how many results a search wants to display). This does not guarantee that all N items strongly match your intent: when your library doesn’t contain sufficiently close matches, lower-ranked results may look unrelated, but they are still the closest candidates available in your current library.</p>
+    <ul>
+      <li>Similar colors/lighting/composition (e.g., lots of white background or similar contrast).</li>
+      <li>Similar scene elements (e.g., screens, documents, people, buildings).</li>
+      <li>Queries that are too short or too general, forcing the system to “guess” what you mean.</li>
+    </ul>
+    <p>Tip: try more specific keywords (longer descriptions are often more accurate), or rephrase your query closer to the target content. You can also narrow the candidate scope first using albums/collection features and then search within that scope.</p>
+
+    <h3>5) Why doesn’t search support filtering by time range?</h3>
+    <p>Search currently focuses on ranking and retrieval by “content similarity”, and does not yet provide a time-range filter. Time filtering needs additional constraints during retrieval and must be integrated carefully with similarity search (otherwise results may become unstable or performance may degrade). We will evaluate adding this capability in future versions based on feedback.</p>
+
+    <h3>6) Few results? Make sure photo analysis progress reaches 100%</h3>
+    <ul>
+      <li>PicSeek needs to analyze/index your photos before they can participate in search.</li>
+      <li>If your search results look sparse, go to the app’s Settings and check the photo analysis progress—make sure it reaches 100%.</li>
+      <li>While analysis is running, keep the app in the foreground when possible (or allow it to keep running), and ensure sufficient battery and storage space.</li>
+    </ul>
+
+  </div>
+
+  <div class="section">
+    <h2>Privacy</h2>
+    <p>By default, except for purchase-related receipt information, the app does not upload your photo library, tags, or index to our servers. If optional cloud backup/sync is enabled in the future, the app will clearly explain it and request your permission on that feature page. For more information, see our <a href="privacy_policy.html">Privacy Policy</a> and <a href="terms.html">Terms of Service</a>.</p>
+  </div>
+
+</body>
+</html>
