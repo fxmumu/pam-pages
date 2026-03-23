@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset=UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Support - PocketBox</title>
+    <title>Support - NoScreenshot</title>
     <style>
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
         h1 { font-size: 24px; margin-bottom: 20px; }
@@ -14,33 +14,52 @@
     </style>
 </head>
 <body>
-    <h1>Technical Support</h1>
-    <p>Last updated: December 18, 2025</p>
+    <h1>Support</h1>
+    <p>Last updated: March 23, 2026</p>
 
-    <p>If you need help with PocketBox, you can contact us or check the common questions below.</p>
+    <p>If you need help with NoScreenshot, you can contact us or check the common questions below.</p>
 
     <h2>1. Contact</h2>
     <p>Email: <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
     <p>Please include:</p>
     <ul>
         <li>Your device model and iOS version</li>
-        <li>PocketBox app version (Settings → About → Version)</li>
+        <li>NoScreenshot app version (Settings → About)</li>
         <li>What you expected vs what happened</li>
         <li>Optional: screenshots or screen recording</li>
     </ul>
 
-    <h2>2. Common Questions</h2>
+    <h2>2. Features Overview</h2>
+    <p><strong>OCR (Text Recognition):</strong> Extract text from screenshots or photos. Processed 100% locally using Apple Vision Framework. No internet required.</p>
+    <p><strong>LLM Text Enhancement:</strong> Use credits to format, summarize, or organize text. Requires internet connection. Only text is sent to cloud, never images.</p>
+    <p><strong>Semantic Search:</strong> Find related knowledge by meaning. Processed locally using CoreML.</p>
 
-    <p><strong>Q: Where are my photos/videos processed?</strong></p>
-    <p>A: PocketBox processes media locally on your device. Your files are not uploaded to our servers for processing.</p>
+    <h2>3. Common Questions</h2>
 
-    <p><strong>Q: Why can’t extracted audio be saved to the Photos app?</strong></p>
-    <p>A: iOS Photos primarily manages photos and videos. Audio files (e.g., <code>.m4a</code>, <code>.wav</code>) should be saved via the Share Sheet to the Files app, AirDrop, or other apps.</p>
+    <p><strong>Q: Is my data safe?</strong></p>
+    <p>A: Your screenshots, OCR text, and knowledge content are stored locally on your device. We cannot access them. Only when you use LLM features, the relevant text is sent to cloud for processing.</p>
 
-    <p><strong>Q: In‑App Purchase doesn’t show the price or purchase sheet.</strong></p>
-    <p>A: Please make sure you have a network connection, and (for StoreKit Testing) the correct <code>.storekit</code> configuration is selected in your Xcode scheme. If the issue persists, contact us with the details above.</p>
+    <p><strong>Q: Do I need internet to use the app?</strong></p>
+    <p>A: Basic features (OCR, knowledge storage, search) work offline. Only LLM text enhancement requires internet.</p>
 
-    <h2>3. Legal</h2>
+    <p><strong>Q: How do credits work?</strong></p>
+    <p>A: Credits are used for LLM features. You get free credits when you first sign in. You can purchase more via in-app purchase.</p>
+
+    <p><strong>Q: What happens if I delete the app?</strong></p>
+    <p>A: All local data will be deleted. Your account and credits are saved on our servers — sign in again to restore them.</p>
+
+    <p><strong>Q: Which languages are supported for OCR?</strong></p>
+    <p>A: Primarily Chinese (Simplified) and English. Apple Vision Framework can also auto-detect other languages.</p>
+
+    <p><strong>Q: How do I get my Support Code?</strong></p>
+    <p>A: Go to <code>User Center</code> in the app. Your Support Code is displayed there.</p>
+
+    <h2>4. Troubleshooting</h2>
+    <p><strong>OCR not working:</strong> Ensure Camera and Photo Library permissions are granted. Try with a clearer image.</p>
+    <p><strong>LLM features unavailable:</strong> Check your internet connection and ensure you have sufficient credits.</p>
+    <p><strong>Search not finding results:</strong> Try different keywords. Ensure you have saved knowledge items.</p>
+
+    <h2>5. Legal</h2>
     <p>
         <a href="privacy.html">Privacy Policy</a>
         •
