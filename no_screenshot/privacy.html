@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - NoScreenshot</title>
+    <style>
+        * { margin: 0;padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: #f5f5f7;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+        }
+        h1 {
+            font-size: 28px;
+            margin-bottom: 8px;
+            color: #1d1d1f;
+        }
+        .app-name {
+            color: #007AFF;
+        }
+        .update-date {
+            color: #86868b;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+        h2 {
+            font-size: 20px;
+            margin: 32px 0 16px;
+            color: #1d1d1f;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 8px;
+        }
+        h3 {
+            font-size: 16px;
+            margin: 20px 0 12px;
+            color: #1d1d1f;
+        }
+        p {
+            margin-bottom: 12px;
+            color: #424245;
+        }
+        ul {
+            margin: 12px 0 12px 24px;
+        }
+        li {
+            margin-bottom: 8px;
+            color: #424245;
+        }
+        .highlight-box {
+            background: #f5f5f7;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin: 16px 0;
+        }
+        .highlight-box.privacy-first {
+            background: #e8f5e9;
+            border-left: 4px solid #4CAF50;
+        }
+        .highlight-box.privacy-first strong {
+            color: #2e7d32;
+        }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+        }
+        .data-table th, .data-table td {
+            border: 1px solid #e5e5e5;
+            padding: 12px;
+            text-align: left;
+        }
+        .data-table th {
+            background: #f5f5f7;
+            font-weight: 600;
+        }
+        .data-table tr:nth-child(even) {
+            background: #fafafa;
+        }
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 500;
+        }
+        .tag.local {
+            background: #e3f2fd;
+            color: #1565c0;
+        }
+        .tag.cloud {
+            background: #fff3e0;
+            color: #e65100;
+        }
+        a {
+            color: #007AFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #e5e5e5;
+            text-align: center;
+            color: #86868b;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><span class="app-name">NoScreenshot</span> Privacy Policy</h1>
+        <p class="update-date">Last updated: March 23, 2026</p>
+
+        <div class="highlight-box privacy-first">
+            <strong>Privacy-First Commitment:</strong> NoScreenshot is designed with privacy as our core principle. Your knowledge data (screenshots, recognized text, notes) is stored entirely on your local device. We cannot access this data.
+        </div>
+
+        <h2>1. Who We Are</h2>
+        <p>NoScreenshot is an offline knowledge management app that helps you transform screenshot fragments into organized knowledge. Our core philosophy is to keep your knowledge data under your control at all times.</p>
+        <p><strong>Developer:</strong> mumubee.org</p>
+        <p><strong>Contact:</strong> Get your support code via "User Center" in the app and contact us</p>
+
+        <h2>2. Data Processing Overview</h2>
+        <p>Depending on the feature, your data is processed differently:</p>
+        
+        <table class="data-table">
+            <tr>
+                <th>Feature</th>
+                <th>Processing</th>
+                <th>Data Destination</th>
+            </tr>
+            <tr>
+                <td>OCR (Text Recognition)</td>
+                <td><span class="tag local">Local</span></td>
+                <td>Processed entirely on your device using Apple Vision Framework</td>
+            </tr>
+            <tr>
+                <td>Embedding (Vectorization)</td>
+                <td><span class="tag local">Local</span></td>
+                <td>Processed entirely on your device using CoreML models</td>
+            </tr>
+            <tr>
+                <td>Knowledge Storage & Search</td>
+                <td><span class="taglocal">Local</span></td>
+                <td>Stored in your device's SQLite database</td>
+            </tr>
+            <tr>
+                <td>LLM Text Enhancement</td>
+                <td><span class="tag cloud">Cloud</span></td>
+                <td>Forwarded to LLM providers via our backend service</td>
+            </tr>
+        </table>
+
+        <h3>2.1 Locally Processed Data (No Upload Required)</h3>
+        <ul>
+            <li><strong>Original Images:</strong> Screenshots or photos you select</li>
+            <li><strong>OCR Results:</strong> Text extracted from images</li>
+            <li><strong>Embedding Vectors:</strong> Text vectors used for semantic search</li>
+            <li><strong>Knowledge Notes:</strong> All knowledge content you create or edit</li>
+        </ul>
+
+        <h3>2.2 Cloud Processing</h3>
+        <p>When you use the "Text Enhancement" feature (e.g., smart summarization, formatting), we send the following data to the cloud:</p>
+        <ul>
+            <li><strong>OCR Text:</strong> Original text content for LLM processing</li>
+            <li><strong>Processing Instructions:</strong> Your selected processing mode (e.g., "summarize", "format")</li>
+        </ul>
+        <div class="highlight-box">
+            <strong>Note:</strong> Cloud processing is only used for LLM text enhancement features. If you only use OCR recognition and knowledge management features, your images and text content never leave your device.
+        </div>
+
+        <h2>3. Account & Authentication</h2>
+        <h3>3.1 Sign in with Apple</h3>
+        <p>We use Apple's Sign in with Apple for user authentication:</p>
+        <ul>
+            <li><strong>Apple User Identifier:</strong> Used to identify your account (provided by Apple, contains no personal information)</li>
+            <li><strong>Email (Optional):</strong> If you choose to share it, we may receive your email address for important notifications</li>
+        </ul>
+        <p>We do not receive your Apple ID password or other sensitive information.</p>
+
+        <h3>3.2 Account Data Storage</h3>
+        <ul>
+            <li><strong>User Identifier:</strong> Stored on our servers for account identification and credits management</li>
+            <li><strong>Support Code:</strong> A unique code for customer support communication</li>
+            <li><strong>Credits Balance:</strong> Used for LLM feature consumption</li>
+        </ul>
+
+        <h2>4. In-App Purchases & Credits</h2>
+        <p>We offer credits purchase (in-app purchase) functionality:</p>
+        <ul>
+            <li><strong>Transaction Records:</strong> Apple handles payments; we only receive transaction verification results</li>
+            <li><strong>Credits Usage:</strong> Each LLM feature call consumes corresponding credits</li>
+            <li><strong>Usage Logs:</strong> We may retain anonymized statistics of credits consumption for service optimization</li>
+        </ul>
+
+        <h2>5. Device Permissions</h2>
+        <p>The app requires the following device permissions:</p>
+        
+        <table class="data-table">
+            <tr>
+                <th>Permission</th>
+                <th>Purpose</th>
+                <th>Uploaded?</th>
+            </tr>
+            <tr>
+                <td>Camera</td>
+                <td>Capture content for recognition</td>
+                <td>No, images are stored locally only</td>
+            </tr>
+            <tr>
+                <td>Photo Library</td>
+                <td>Select screenshots for text recognition</td>
+                <td>No, images are stored locally only</td>
+            </tr>
+        </table>
+
+        <h2>6. Data Security</h2>
+        <h3>6.1 Local Data Security</h3>
+        <ul>
+            <li>Your knowledge data is stored within the App Sandbox and cannot be accessed by other apps</li>
+            <li>Data is stored using SQLite database with vector search support</li>
+            <li>All Embedding calculations are performed locally using CoreML models</li>
+        </ul>
+
+        <h3>6.2 Transmission Security</h3>
+        <ul>
+            <li>All network communications use HTTPS encryption</li>
+            <li>API requests use JWT token authentication</li>
+        </ul>
+
+        <h3>6.3 Third-Party Services</h3>
+        <p>We may use the following third-party services:</p>
+        <ul>
+            <li><strong>LLM Service Providers:</strong> For text enhancement processing (only processes text you choose to send)</li>
+            <li><strong>Apple In-App Purchase:</strong> For handling credits purchase transactions</li>
+        </ul>
+
+        <h2>7. Data Retention & Deletion</h2>
+        <h3>7.1 Local Data</h3>
+        <ul>
+            <li>Your knowledge data is retained on your device as long as the app is installed</li>
+            <li>Deleting the app also deletes all local data</li>
+            <li>You can delete individual knowledge records within the app</li>
+        </ul>
+
+        <h3>7.2 Account Data</h3>
+        <ul>
+            <li>To delete your account, please contact us via your support code</li>
+            <li>After account deletion, your user identifier and credits records will be permanently deleted</li>
+        </ul>
+
+        <h2>8. Children's Privacy</h2>
+        <p>This app is not intended for children under 13. If you are a parent and discover that your child has provided us with personal information, please contact us via support code.</p>
+
+        <h2>9. Privacy Policy Updates</h2>
+        <p>We may update this privacy policy from time to time. For significant changes, we will notify you within the app. Continued use of the service indicates acceptance of the updated policy.</p>
+
+        <h2>10. Contact Us</h2>
+        <p>If you have any questions about this privacy policy, please:</p>
+        <ul>
+            <li>Get your support code via "User Center" in the app</li>
+            <li>Contact customer support using your support code</li>
+        </ul>
+
+        <footer>
+            <p>&copy; 2026 NoScreenshot / mumubee.org. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
