@@ -171,7 +171,7 @@
                 <p><strong>🎁 创作兑换计划</strong></p>
                 <ol>
                     <li><strong>发布原创内容：</strong>在小红书、X（Twitter）、Threads、Reddit 等平台发布（评测、教程、好物推荐、场景分享……形式不限，真实就好）</li>
-                    <li><strong>达到门槛：</strong>浏览量 ≥ 20,000，点赞/互动 ≥ 100</li>
+                    <li><strong>达到门槛：</strong>浏览量 ≥ 5,000，点赞/互动 ≥ 50</li>
                     <li><strong>发送链接：</strong>将帖子链接发至 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></li>
                     <li><strong>兑换奖励：</strong>验证通过后发放<strong>终身 Pro 兑换码</strong></li>
                 </ol>
@@ -218,7 +218,7 @@
                 <p><strong>🎁 創作兌換計劃</strong></p>
                 <ol>
                     <li><strong>發布原創內容：</strong>在小紅書、X（Twitter）、Threads、Reddit 等平台發布（評測、教學、好物推薦、場景分享……形式不限，真實就好）</li>
-                    <li><strong>達到門檻：</strong>瀏覽量 ≥ 20,000，按讚/互動 ≥ 100</li>
+                    <li><strong>達到門檻：</strong>瀏覽量 ≥ 5,000，按讚/互動 ≥ 50</li>
                     <li><strong>寄送連結：</strong>將貼文連結寄至 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></li>
                     <li><strong>兌換獎勵：</strong>驗證通過後發放<strong>終身 Pro 兌換碼</strong></li>
                 </ol>
@@ -265,7 +265,7 @@
                 <p><strong>🎁 Creator Exchange Program</strong></p>
                 <ol>
                     <li><strong>Post original content</strong> on Xiaohongshu, X (Twitter), Threads, Reddit, etc. (reviews, tutorials, recommendations, use cases — any format, just be authentic)</li>
-                    <li><strong>Hit the threshold:</strong> 20,000+ views &amp; 100+ likes/interactions</li>
+                    <li><strong>Hit the threshold:</strong> 5,000+ views &amp; 50+ likes/interactions</li>
                     <li><strong>Send the link</strong> to <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></li>
                     <li><strong>Claim your reward:</strong> once verified, we'll send you a <strong>Lifetime Pro code</strong></li>
                 </ol>
@@ -312,7 +312,7 @@
                 <p><strong>🎁 クリエイター交換プログラム</strong></p>
                 <ol>
                     <li><strong>オリジナルコンテンツを投稿：</strong>小紅書、X（Twitter）、Threads、Reddit 等で（レビュー、チュートリアル、おすすめ、活用事例など形式は自由。リアルな内容で）</li>
-                    <li><strong>目標を達成：</strong>閲覧数 20,000 以上 &amp; いいね/インタラクション 100 以上</li>
+                    <li><strong>目標を達成：</strong>閲覧数 5,000 以上 &amp; いいね/インタラクション 50 以上</li>
                     <li><strong>リンクを送付：</strong><a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a> まで投稿リンクをお送りください</li>
                     <li><strong>報酬を受け取る：</strong>確認後、<strong>永久 Pro コード</strong>を発行します</li>
                 </ol>
@@ -359,7 +359,7 @@
                 <p><strong>🎁 크리에이터 교환 프로그램</strong></p>
                 <ol>
                     <li><strong>오리지널 콘텐츠 게시:</strong> 샤오홍슈, X(Twitter), Threads, Reddit 등에 (리뷰, 튜토리얼, 추천, 활용 사례 등 형식은 자유롭게, 진정성 있는 콘텐츠면 충분합니다)</li>
-                    <li><strong>기준 달성:</strong> 조회수 20,000회 이상 &amp; 좋아요/반응 100개 이상</li>
+                    <li><strong>기준 달성:</strong> 조회수 5,000회 이상 &amp; 좋아요/반응 50개 이상</li>
                     <li><strong>링크 제출:</strong> 게시물 링크를 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>로 보내주세요</li>
                     <li><strong>보상 수령:</strong> 확인 후 <strong>평생 Pro 코드</strong>를 발급해 드립니다</li>
                 </ol>
@@ -417,9 +417,11 @@
         });
     }
 
-    // restore saved preferences
+    // restore saved preferences (URL param > localStorage > default)
     (function() {
-        const savedLang = localStorage.getItem('kol_lang') || 'zh-Hans';
+        const params = new URLSearchParams(window.location.search);
+        const urlLang = params.get('lang');
+        const savedLang = urlLang || localStorage.getItem('kol_lang') || 'zh-Hans';
         langSelect.value = savedLang;
         switchLang(savedLang);
 
