@@ -5,28 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KOL 合作</title>
     <style>
-        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; line-height: 1.6; color: #333; max-width: 800px; margin: 0 auto; padding: 20px; }
+        :root {
+            --bg: #fff;
+            --text: #333;
+            --text-secondary: #666;
+            --border: #e5e7eb;
+            --card-bg: #f9fafb;
+            --button-bg: #0b6ef5;
+            --button-hover: #0958c8;
+            --button-text: #fff;
+            --tag-bg: #eff6ff;
+            --tag-text: #1d4ed8;
+        }
+        .dark {
+            --bg: #111827;
+            --text: #e5e7eb;
+            --text-secondary: #9ca3af;
+            --border: #374151;
+            --card-bg: #1f2937;
+            --button-bg: #3b82f6;
+            --button-hover: #2563eb;
+            --button-text: #fff;
+            --tag-bg: #1e3a5f;
+            --tag-text: #93c5fd;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 16px 20px 40px;
+            transition: background 0.3s, color 0.3s;
+        }
+        /* top bar */
+        .topbar {
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 24px;
+            flex-wrap: wrap;
+        }
+        .lang-select {
+            padding: 6px 12px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 14px;
+            cursor: pointer;
+            outline: none;
+            transition: border 0.2s;
+        }
+        .lang-select:focus { border-color: var(--button-bg); }
+        .theme-btn {
+            width: 36px; height: 36px;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            background: var(--bg);
+            color: var(--text);
+            font-size: 16px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.2s;
+        }
+        .theme-btn:hover { background: var(--card-bg); }
+
         h1 { font-size: 24px; margin-bottom: 4px; }
-        h2 { font-size: 18px; margin-top: 20px; margin-bottom: 8px; }
+        h2 { font-size: 18px; margin-top: 24px; margin-bottom: 10px; }
         p { margin-bottom: 12px; }
         ul { margin-bottom: 15px; padding-left: 20px; }
-        .muted { color: #666; font-size: 13px; margin-bottom: 20px; }
-        .button { display: inline-block; padding: 10px 24px; background: #0b6ef5; color: #fff; text-decoration: none; border-radius: 8px; font-size: 15px; margin-top: 4px; }
-        .button:hover { background: #0958c8; }
+        li { margin-bottom: 6px; }
+        .muted { color: var(--text-secondary); font-size: 13px; margin-bottom: 20px; }
+        .button {
+            display: inline-block;
+            padding: 10px 24px;
+            background: var(--button-bg);
+            color: var(--button-text);
+            text-decoration: none;
+            border-radius: 8px;
+            font-size: 15px;
+            margin-top: 8px;
+            transition: background 0.2s;
+        }
+        .button:hover { background: var(--button-hover); }
+        .highlight {
+            background: var(--card-bg);
+            border-left: 3px solid var(--button-bg);
+            padding: 12px 16px;
+            border-radius: 0 8px 8px 0;
+            margin: 10px 0 14px;
+        }
+        .highlight p { margin-bottom: 4px; }
+        a { color: var(--button-bg); }
     </style>
 </head>
 <body>
+
+<div class="topbar">
+    <select class="lang-select" id="langSelect" onchange="switchLang(this.value)">
+        <option value="zh-Hans">简体中文</option>
+        <option value="zh-Hant">繁體中文</option>
+        <option value="en">English</option>
+        <option value="ja">日本語</option>
+        <option value="ko">한국어</option>
+    </select>
+    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切换主题 / Toggle theme">🌙</button>
+</div>
+
+<!-- ============ zh-Hans ============ -->
+<div class="lang zh-Hans">
     <h1>KOL 合作邀请</h1>
     <p class="muted">开放合作 · 长期有效</p>
-
     <p>你好！我是独立开发者 Fox Lin，开发了多款 iOS 应用。我正在寻找对效率工具、AI 应用、生活实用类产品感兴趣的创作者，一起探索合作可能。</p>
 
     <h2>合作形式</h2>
     <ul>
-        <li><strong>内容共创：</strong>评测视频、使用教程、场景化推荐等原创内容
-            <ul>
-                <li><strong>🎁 创作兑换计划：</strong>在小红书、X（Twitter）、Threads、Reddit 等平台发布原创内容，浏览量 ≥ 20,000 且点赞/互动 ≥ 100，将帖子链接发至 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>，验证通过即可兑换<strong>终身 Pro 兑换码</strong>。内容形式不限：评测、教程、好物推荐、场景分享……真实就好。</li>
-            </ul>
+        <li>
+            <strong>内容共创：</strong>评测视频、使用教程、场景化推荐等原创内容
+            <div class="highlight">
+                <p><strong>🎁 创作兑换计划：</strong>在小红书、X（Twitter）、Threads、Reddit 等平台发布原创内容，浏览量 ≥ 20,000 且点赞/互动 ≥ 100，将帖子链接发至 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>，验证通过即可兑换<strong>终身 Pro 兑换码</strong>。内容形式不限：评测、教程、好物推荐、场景分享……真实就好。</p>
+            </div>
         </li>
         <li><strong>流量置换：</strong>互相推荐、资源位互换</li>
         <li><strong>分成合作：</strong>通过专属链接或兑换码推广，按效果分成</li>
@@ -52,7 +156,212 @@
     <h2>联系方式</h2>
     <p>📧 邮件：<a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
     <p>来信请简单介绍你的平台、内容方向，我们会尽快回复。</p>
-
     <a class="button" href="mailto:foxdmu@gmail.com?subject=KOL%20合作洽谈">联系我聊聊</a>
+</div>
+
+<!-- ============ zh-Hant ============ -->
+<div class="lang zh-Hant" style="display:none">
+    <h1>KOL 合作邀請</h1>
+    <p class="muted">開放合作 · 長期有效</p>
+    <p>你好！我是獨立開發者 Fox Lin，開發了多款 iOS 應用。我正在尋找對效率工具、AI 應用、生活實用類產品感興趣的創作者，一起探索合作可能。</p>
+
+    <h2>合作形式</h2>
+    <ul>
+        <li>
+            <strong>內容共創：</strong>評測影片、使用教學、場景化推薦等原創內容
+            <div class="highlight">
+                <p><strong>🎁 創作兌換計劃：</strong>在小紅書、X（Twitter）、Threads、Reddit 等平台發布原創內容，瀏覽量 ≥ 20,000 且按讚/互動 ≥ 100，將貼文連結寄至 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>，驗證通過即可兌換<strong>終身 Pro 兌換碼</strong>。內容形式不限：評測、教學、好物推薦、場景分享……真實就好。</p>
+            </div>
+        </li>
+        <li><strong>流量置換：</strong>互相推薦、資源位互換</li>
+        <li><strong>分成合作：</strong>透過專屬連結或兌換碼推廣，按效果分成</li>
+        <li><strong>長期代言：</strong>深度綁定品牌合作，持續內容產出</li>
+        <li>其他你感興趣的合作方式也歡迎來聊</li>
+    </ul>
+
+    <h2>我們能提供</h2>
+    <ul>
+        <li>終身會員 / Pro 兌換碼</li>
+        <li>有競爭力的分成比例</li>
+        <li>產品優先體驗權（內測版本提前試用）</li>
+        <li>靈活的合作週期，不綁定</li>
+    </ul>
+
+    <h2>希望你</h2>
+    <ul>
+        <li>內容調性真實、有品質感</li>
+        <li>對效率工具 / AI / 生活方式類產品有興趣</li>
+        <li>歡迎各個量級的創作者，真誠比粉絲數重要</li>
+    </ul>
+
+    <h2>聯繫方式</h2>
+    <p>📧 郵件：<a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
+    <p>來信請簡單介紹你的平台、內容方向，我們會儘快回覆。</p>
+    <a class="button" href="mailto:foxdmu@gmail.com?subject=KOL%20合作洽談">聯繫我聊聊</a>
+</div>
+
+<!-- ============ en ============ -->
+<div class="lang en" style="display:none">
+    <h1>KOL Collaboration</h1>
+    <p class="muted">Open collaboration · Ongoing</p>
+    <p>Hi! I'm Fox Lin, an indie developer building iOS apps. I'm looking for creators passionate about productivity tools, AI apps, and lifestyle products to explore collaboration opportunities.</p>
+
+    <h2>Collaboration Types</h2>
+    <ul>
+        <li>
+            <strong>Content Co-creation:</strong> Reviews, tutorials, and authentic recommendation content
+            <div class="highlight">
+                <p><strong>🎁 Creator Exchange Program:</strong> Post original content on Xiaohongshu, X (Twitter), Threads, Reddit, or other platforms. Reach 20,000+ views and 100+ likes/interactions, then send the post link to <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>. Once verified, you'll receive a <strong>Lifetime Pro code</strong>. Any content format is welcome — reviews, tutorials, recommendations, real-world use cases. Just be authentic.</p>
+            </div>
+        </li>
+        <li><strong>Cross-promotion:</strong> Mutual referrals and feature swaps</li>
+        <li><strong>Revenue Share:</strong> Promote via your unique link or code and earn commissions</li>
+        <li><strong>Long-term Partnership:</strong> Deep brand collaboration with ongoing content</li>
+        <li>Got another idea? Let's talk</li>
+    </ul>
+
+    <h2>What We Offer</h2>
+    <ul>
+        <li>Lifetime / Pro redemption codes</li>
+        <li>Competitive revenue share</li>
+        <li>Early access to beta features</li>
+        <li>Flexible commitment, no lock-in</li>
+    </ul>
+
+    <h2>What We're Looking For</h2>
+    <ul>
+        <li>Authentic, high-quality content style</li>
+        <li>Interest in productivity / AI / lifestyle apps</li>
+        <li>Creators of all sizes welcome — sincerity matters more than follower count</li>
+    </ul>
+
+    <h2>Contact</h2>
+    <p>📧 Email: <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
+    <p>Tell us a bit about your platform and content focus — we'll get back to you soon.</p>
+    <a class="button" href="mailto:foxdmu@gmail.com?subject=KOL%20Collaboration">Get in Touch</a>
+</div>
+
+<!-- ============ ja ============ -->
+<div class="lang ja" style="display:none">
+    <h1>KOL コラボレーション</h1>
+    <p class="muted">オープンコラボ · 随時募集中</p>
+    <p>こんにちは！インディー開発者の Fox Lin です。iOS アプリを複数開発しています。生産性ツール、AI アプリ、ライフスタイル系プロダクトに興味のあるクリエイターの方を募集しています。</p>
+
+    <h2>コラボの形</h2>
+    <ul>
+        <li>
+            <strong>コンテンツ共創：</strong>レビュー動画、使い方チュートリアル、シーン別おすすめなどのオリジナルコンテンツ
+            <div class="highlight">
+                <p><strong>🎁 クリエイター交換プログラム：</strong>小紅書、X（Twitter）、Threads、Reddit 等でオリジナルコンテンツを投稿し、閲覧数 20,000 以上＆いいね/インタラクション 100 以上を達成したら、投稿リンクを <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a> までお送りください。確認後、<strong>永久 Pro コード</strong>を発行します。レビュー、チュートリアル、おすすめ、活用事例など形式は自由。リアルな内容でお願いします。</p>
+            </div>
+        </li>
+        <li><strong>相互プロモーション：</strong>お互いの紹介や枠の交換</li>
+        <li><strong>レベニューシェア：</strong>専用リンクやコード経由の成果報酬</li>
+        <li><strong>長期パートナーシップ：</strong>ブランドとの深い連携、継続的なコンテンツ制作</li>
+        <li>その他ご希望のコラボ方法もお気軽にご相談ください</li>
+    </ul>
+
+    <h2>提供できるもの</h2>
+    <ul>
+        <li>永久会員 / Pro コード</li>
+        <li>競争力のあるレベニューシェア</li>
+        <li>ベータ版先行体験</li>
+        <li>柔軟な契約期間、拘束なし</li>
+    </ul>
+
+    <h2>求めるクリエイター像</h2>
+    <ul>
+        <li>リアルで品質感のあるコンテンツ</li>
+        <li>生産性ツール / AI / ライフスタイル系に興味がある方</li>
+        <li>フォロワー数より誠実さを重視、どんな規模の方も歓迎</li>
+    </ul>
+
+    <h2>お問い合わせ</h2>
+    <p>📧 メール：<a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
+    <p>プラットフォームとコンテンツの方向性を簡単にお知らせください。すぐに返信します。</p>
+    <a class="button" href="mailto:foxdmu@gmail.com?subject=KOL%20コラボ">お問い合わせ</a>
+</div>
+
+<!-- ============ ko ============ -->
+<div class="lang ko" style="display:none">
+    <h1>KOL 협업</h1>
+    <p class="muted">오픈 협업 · 상시 모집</p>
+    <p>안녕하세요! 인디 개발자 Fox Lin입니다. 여러 iOS 앱을 개발하고 있습니다. 생산성 도구, AI 앱, 라이프스타일 제품에 관심 있는 크리에이터를 찾고 있습니다.</p>
+
+    <h2>협업 형태</h2>
+    <ul>
+        <li>
+            <strong>콘텐츠 공동 제작:</strong> 리뷰 영상, 사용 튜토리얼, 상황별 추천 등 오리지널 콘텐츠
+            <div class="highlight">
+                <p><strong>🎁 크리에이터 교환 프로그램:</strong> 샤오홍슈, X(Twitter), Threads, Reddit 등에 오리지널 콘텐츠를 게시하여 조회수 20,000회 이상 & 좋아요/반응 100개 이상을 달성하면, 게시물 링크를 <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a>로 보내주세요. 확인 후 <strong>평생 Pro 코드</strong>를 발급해 드립니다. 리뷰, 튜토리얼, 추천, 활용 사례 등 형식은 자유롭게, 진정성 있는 콘텐츠면 충분합니다.</p>
+            </div>
+        </li>
+        <li><strong>상호 프로모션:</strong> 서로 추천 및 배너 교환</li>
+        <li><strong>수익 공유:</strong> 전용 링크나 코드를 통한 성과 기반 수익 배분</li>
+        <li><strong>장기 파트너십:</strong> 브랜드와의 깊은 협업, 지속적인 콘텐츠 제작</li>
+        <li>다른 협업 아이디어도 언제든 환영합니다</li>
+    </ul>
+
+    <h2>제공 혜택</h2>
+    <ul>
+        <li>평생 회원 / Pro 코드</li>
+        <li>경쟁력 있는 수익 공유 비율</li>
+        <li>베타 기능 우선 체험</li>
+        <li>유연한 계약 기간, 구속 없음</li>
+    </ul>
+
+    <h2>찾는 크리에이터</h2>
+    <ul>
+        <li>진정성 있고 퀄리티 있는 콘텐츠</li>
+        <li>생산성 도구 / AI / 라이프스타일 앱에 관심 있는 분</li>
+        <li>팔로워보다 진심을 중요하게 생각하며, 모든 규모의 크리에이터 환영</li>
+    </ul>
+
+    <h2>문의</h2>
+    <p>📧 이메일: <a href="mailto:foxdmu@gmail.com">foxdmu@gmail.com</a></p>
+    <p>플랫폼과 콘텐츠 방향을 간략히 알려주시면 빠르게 답변 드리겠습니다.</p>
+    <a class="button" href="mailto:foxdmu@gmail.com?subject=KOL%20협업">문의하기</a>
+</div>
+
+<script>
+    const langSelect = document.getElementById('langSelect');
+    const themeBtn = document.getElementById('themeBtn');
+    const body = document.body;
+
+    function switchLang(code) {
+        document.querySelectorAll('.lang').forEach(el => el.style.display = 'none');
+        const target = document.querySelector('.lang.' + code);
+        if (target) target.style.display = 'block';
+        document.documentElement.lang = code;
+        localStorage.setItem('kol_lang', code);
+    }
+
+    let isDark = false;
+    function toggleTheme() {
+        isDark = !isDark;
+        body.classList.toggle('dark', isDark);
+        themeBtn.textContent = isDark ? '☀️' : '🌙';
+        localStorage.setItem('kol_theme', isDark ? 'dark' : 'light');
+    }
+
+    // restore saved preferences
+    (function() {
+        const savedLang = localStorage.getItem('kol_lang') || 'zh-Hans';
+        langSelect.value = savedLang;
+        switchLang(savedLang);
+
+        const savedTheme = localStorage.getItem('kol_theme');
+        if (savedTheme === 'dark') {
+            isDark = true;
+            body.classList.add('dark');
+            themeBtn.textContent = '☀️';
+        } else {
+            isDark = false;
+            body.classList.remove('dark');
+            themeBtn.textContent = '🌙';
+        }
+    })();
+</script>
+
 </body>
 </html>
