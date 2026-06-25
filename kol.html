@@ -61,20 +61,47 @@
             transition: border 0.2s;
         }
         .lang-select:focus { border-color: var(--button-bg); }
-        .theme-btn {
-            width: 36px; height: 36px;
+        .theme-toggle {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            height: 34px;
+            padding: 0 4px;
             border: 1px solid var(--border);
             border-radius: 8px;
-            background: var(--bg);
-            color: var(--text);
-            font-size: 16px;
+            background: var(--card-bg);
             cursor: pointer;
+            gap: 2px;
+            user-select: none;
+            transition: border 0.2s;
+        }
+        .theme-toggle:hover { border-color: var(--button-bg); }
+        .theme-toggle .icon {
+            position: relative;
+            z-index: 2;
+            width: 26px; height: 26px;
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: background 0.2s;
+            font-size: 13px;
+            line-height: 1;
+            border-radius: 6px;
+            transition: color 0.3s;
+            color: var(--text-secondary);
         }
-        .theme-btn:hover { background: var(--card-bg); }
+        .theme-toggle .icon.active { color: var(--text); }
+        .theme-toggle .slider {
+            position: absolute;
+            z-index: 1;
+            top: 3px;
+            width: 26px; height: 26px;
+            border-radius: 6px;
+            background: var(--bg);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            transform: translateX(3px);
+        }
+        .dark .theme-toggle .slider { transform: translateX(31px); box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
 
         h1 { font-size: 24px; margin-bottom: 4px; }
         h2 { font-size: 18px; margin-top: 24px; margin-bottom: 10px; }
@@ -115,7 +142,11 @@
         <option value="ja">日本語</option>
         <option value="ko">한국어</option>
     </select>
-    <button class="theme-btn" id="themeBtn" onclick="toggleTheme()" title="切换主题 / Toggle theme">🌙</button>
+    <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题 / Toggle theme">
+        <span class="icon active" data-theme="light">☀️</span>
+        <span class="icon" data-theme="dark">🌙</span>
+        <span class="slider"></span>
+    </div>
 </div>
 
 <!-- ============ zh-Hans ============ -->
@@ -355,7 +386,7 @@
 
 <script>
     const langSelect = document.getElementById('langSelect');
-    const themeBtn = document.getElementById('themeBtn');
+    const themeToggle = document.getElementById('themeToggle');
     const body = document.body;
 
     function switchLang(code) {
@@ -366,12 +397,16 @@
         localStorage.setItem('kol_lang', code);
     }
 
-    let isDark = false;
     function toggleTheme() {
-        isDark = !isDark;
-        body.classList.toggle('dark', isDark);
-        themeBtn.textContent = isDark ? '☀️' : '🌙';
+        const isDark = body.classList.toggle('dark');
+        updateThemeIcons(isDark);
         localStorage.setItem('kol_theme', isDark ? 'dark' : 'light');
+    }
+
+    function updateThemeIcons(isDark) {
+        themeToggle.querySelectorAll('.icon').forEach(icon => {
+            icon.classList.toggle('active', icon.dataset.theme === (isDark ? 'dark' : 'light'));
+        });
     }
 
     // restore saved preferences
@@ -381,15 +416,10 @@
         switchLang(savedLang);
 
         const savedTheme = localStorage.getItem('kol_theme');
-        if (savedTheme === 'dark') {
-            isDark = true;
-            body.classList.add('dark');
-            themeBtn.textContent = '☀️';
-        } else {
-            isDark = false;
-            body.classList.remove('dark');
-            themeBtn.textContent = '🌙';
-        }
+        const isDark = savedTheme === 'dark';
+        if (isDark) body.classList.add('dark');
+        else body.classList.remove('dark');
+        updateThemeIcons(isDark);
     })();
 </script>
 
