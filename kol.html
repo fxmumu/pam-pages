@@ -66,14 +66,13 @@
             display: inline-flex;
             align-items: center;
             height: 34px;
-            padding: 0 4px;
+            padding: 3px;
             border: 1px solid var(--border);
-            border-radius: 8px;
+            border-radius: 20px;
             background: var(--card-bg);
             cursor: pointer;
-            gap: 2px;
             user-select: none;
-            transition: border 0.2s;
+            transition: border 0.2s, background 0.3s;
         }
         .theme-toggle:hover { border-color: var(--button-bg); }
         .theme-toggle .icon {
@@ -85,23 +84,23 @@
             justify-content: center;
             font-size: 13px;
             line-height: 1;
-            border-radius: 6px;
+            border-radius: 50%;
             transition: color 0.3s;
             color: var(--text-secondary);
         }
         .theme-toggle .icon.active { color: var(--text); }
-        .theme-toggle .slider {
+        .theme-toggle .capsule {
             position: absolute;
             z-index: 1;
             top: 3px;
             width: 26px; height: 26px;
-            border-radius: 6px;
+            border-radius: 50%;
             background: var(--bg);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.06);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             transform: translateX(3px);
         }
-        .dark .theme-toggle .slider { transform: translateX(31px); box-shadow: 0 1px 3px rgba(0,0,0,0.3); }
+        .dark .theme-toggle .capsule { transform: translateX(29px); box-shadow: 0 1px 3px rgba(0,0,0,0.4); }
 
         h1 { font-size: 24px; margin-bottom: 4px; }
         h2 { font-size: 18px; margin-top: 24px; margin-bottom: 10px; }
@@ -145,7 +144,7 @@
     <div class="theme-toggle" id="themeToggle" onclick="toggleTheme()" title="切换主题 / Toggle theme">
         <span class="icon active" data-theme="light">☀️</span>
         <span class="icon" data-theme="dark">🌙</span>
-        <span class="slider"></span>
+        <span class="capsule"></span>
     </div>
 </div>
 
