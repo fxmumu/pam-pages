@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>安全约会 · Safe Date — 女性约会安全守护</title>
+    <meta name="description" content="安全约会 Safe Date 是一款女性约会安全 App。设置约会时间与紧急联系人，超时未确认自动通知，守护每一次约会。A personal safety companion for dating — set a check-in timer and emergency contacts. If you don't check in on time, your guardian gets notified automatically.">
+    <meta property="og:title" content="安全约会 · Safe Date — 女性约会安全守护">
+    <meta property="og:description" content="A personal safety companion for dating. 守护每一次约会。">
+    <meta property="og:url" content="https://mumubee.org/girls_guard/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23d4687b'><path d='M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z'/><polyline points='9 12 11 14 15 10' stroke='white' stroke-width='2' fill='none'/></svg>">
+    <style>
+        :root {
+            --bg: #fdf6f5; --surface: #fff; --fg: #373433; --muted: #7a7473;
+            --accent: #d4687b; --accent-dark: #bf5063;
+            --font: -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+            --font-display: 'Avenir Next', system-ui, sans-serif;
+        }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: var(--font); color: var(--fg); background: var(--bg);
+            line-height: 1.6; -webkit-font-smoothing: antialiased;
+        }
+        .container { max-width: 900px; margin: 0 auto; padding: 0 24px; }
+        section { padding: 80px 0; }
+
+        /* Hero */
+        .hero { text-align: center; padding: 100px 0 60px; }
+        .hero-icon {
+            width: 80px; height: 80px; background: var(--accent); border-radius: 22px;
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 24px; box-shadow: 0 8px 32px rgba(212,104,123,0.35);
+        }
+        .hero h1 {
+            font-family: var(--font-display); font-size: 48px; font-weight: 700;
+            letter-spacing: -0.02em; margin-bottom: 8px;
+        }
+        .hero h1 .en { font-size: 22px; font-weight: 500; color: var(--muted); display: block; letter-spacing: 0; }
+        .hero p {
+            font-size: 20px; color: var(--muted); max-width: 560px; margin: 0 auto 12px;
+        }
+        .hero p.en { font-size: 15px; margin-bottom: 32px; }
+        .btn {
+            display: inline-block; padding: 16px 40px; background: var(--accent);
+            color: #fff; border-radius: 16px; font-size: 17px; font-weight: 700;
+            text-decoration: none; transition: background 0.15s, transform 0.1s;
+            box-shadow: 0 4px 16px rgba(212,104,123,0.35);
+        }
+        .btn .en { font-size: 13px; font-weight: 500; display: block; opacity: 0.8; }
+        .btn:hover { background: var(--accent-dark); }
+        .btn:active { transform: scale(0.97); }
+
+        /* Section titles */
+        .section-title { text-align: center; margin-bottom: 48px; }
+        .section-title h2 {
+            font-family: var(--font-display); font-size: 32px; font-weight: 700;
+        }
+        .section-title .en { font-size: 15px; color: var(--muted); display: block; margin-top: 4px; }
+
+        /* Features */
+        .features { background: var(--surface); }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 28px;
+        }
+        .feature {
+            text-align: center; padding: 28px 20px; border-radius: 20px;
+            background: var(--bg); border: 1px solid #eee;
+        }
+        .feature-icon {
+            width: 56px; height: 56px; border-radius: 16px;
+            background: rgba(212,104,123,0.12);
+            display: inline-flex; align-items: center; justify-content: center;
+            margin-bottom: 16px; font-size: 28px;
+        }
+        .feature h3 { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+        .feature h3 .en { font-size: 13px; font-weight: 500; color: var(--muted); display: block; }
+        .feature p { font-size: 14px; color: var(--muted); line-height: 1.6; margin-top: 6px; }
+
+        /* How it works */
+        .steps { text-align: center; }
+        .step-list { display: flex; flex-direction: column; gap: 28px; max-width: 520px; margin: 0 auto; }
+        .step {
+            display: flex; align-items: flex-start; gap: 20px; text-align: left;
+        }
+        .step-num {
+            width: 44px; height: 44px; border-radius: 50%; background: var(--accent);
+            color: #fff; display: flex; align-items: center; justify-content: center;
+            font-size: 20px; font-weight: 700; flex-shrink: 0;
+        }
+        .step h3 { font-size: 18px; font-weight: 600; margin-bottom: 2px; }
+        .step h3 .en { font-size: 13px; font-weight: 500; color: var(--muted); display: block; }
+        .step p { font-size: 14px; color: var(--muted); }
+
+        /* CTA */
+        .cta { text-align: center; background: var(--surface); }
+        .cta h2 {
+            font-family: var(--font-display); font-size: 28px; font-weight: 700; margin-bottom: 4px;
+        }
+        .cta h2 .en { font-size: 16px; font-weight: 500; color: var(--muted); display: block; }
+        .cta p { font-size: 16px; color: var(--muted); margin-bottom: 32px; }
+
+        /* Footer */
+        footer {
+            text-align: center; padding: 32px 0; font-size: 13px; color: var(--muted);
+            border-top: 1px solid #eee;
+        }
+        footer a { color: var(--accent); text-decoration: none; }
+        footer a:hover { text-decoration: underline; }
+    </style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="container">
+        <div class="hero-icon">
+            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                <polyline points="9 12 11 14 15 10"/>
+            </svg>
+        </div>
+        <h1>
+            安全约会
+            <span class="en">Safe Date</span>
+        </h1>
+        <p>设置约会时间与紧急联系人，超时自动通知。守护自己，安心赴约。</p>
+        <p class="en">Set a check-in timer &amp; emergency contacts. If you don't check in, your guardian gets notified.</p>
+        <a href="#" class="btn">
+            即将上线 App Store
+            <span class="en">Coming soon on the App Store</span>
+        </a>
+    </div>
+</section>
+
+<!-- ===== FEATURES ===== -->
+<section class="features">
+    <div class="container">
+        <div class="section-title">
+            <h2>
+                怎么守护你
+                <span class="en">How It Protects You</span>
+            </h2>
+        </div>
+        <div class="feature-grid">
+            <div class="feature">
+                <div class="feature-icon">&#x23F0;</div>
+                <h3>
+                    设置归家时间
+                    <span class="en">Set a Return Time</span>
+                </h3>
+                <p>约会前设置预计归家时间，App 开始倒计时。Set your expected return time and the countdown begins.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x1F464;</div>
+                <h3>
+                    紧急联系人
+                    <span class="en">Emergency Contacts</span>
+                </h3>
+                <p>添加多位联系人，每次约会任选其一作为守护者。Add multiple contacts, pick one per date.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x2709;</div>
+                <h3>
+                    超时自动通知
+                    <span class="en">Auto Alert on Timeout</span>
+                </h3>
+                <p>超过预计时间未确认，自动发邮件通知紧急联系人。Email is sent automatically if you don't check in.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x1F512;</div>
+                <h3>
+                    隐私优先
+                    <span class="en">Privacy First</span>
+                </h3>
+                <p>通过 Apple 登录，端到端加密。只有你和选中的联系人知情。Sign in with Apple. Only you and your chosen contact know.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x1F4F1;</div>
+                <h3>
+                    桌面小组件
+                    <span class="en">Home Screen Widget</span>
+                </h3>
+                <p>锁屏即可查看守护状态与剩余时间。Glance at your status right from the home screen.</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">&#x23F3;</div>
+                <h3>
+                    延长时间
+                    <span class="en">Extend Timer</span>
+                </h3>
+                <p>想多待一会？一键 +15 分钟。Want to stay longer? Tap to add 15 minutes.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOW IT WORKS ===== -->
+<section class="steps">
+    <div class="container">
+        <div class="section-title">
+            <h2>
+                三步开始
+                <span class="en">Get Started in 3 Steps</span>
+            </h2>
+        </div>
+        <div class="step-list">
+            <div class="step">
+                <div class="step-num">1</div>
+                <div>
+                    <h3>
+                        添加紧急联系人
+                        <span class="en">Add Emergency Contacts</span>
+                    </h3>
+                    <p>设置至少一位联系人作为你的守护者。Add at least one person you trust.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">2</div>
+                <div>
+                    <h3>
+                        设置约会信息
+                        <span class="en">Fill in Date Details</span>
+                    </h3>
+                    <p>填写约会对象、地点、预计归家时间。Enter your date's name, location &amp; estimated return time.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-num">3</div>
+                <div>
+                    <h3>
+                        开启守护
+                        <span class="en">Start Guarding</span>
+                    </h3>
+                    <p>点击按钮开始守护，安全到家后确认即可。Tap to start. Confirm once you're home safe.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta">
+    <div class="container">
+        <h2>
+            守护每一次约会
+            <span class="en">Every Date, Protected</span>
+        </h2>
+        <p>安全约会即将上架 App Store，敬请期待。</p>
+        <a href="#" class="btn">
+            下载安全约会
+            <span class="en">Download Safe Date</span>
+        </a>
+    </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+    <div class="container">
+        <p>&copy; 2026 安全约会 · Safe Date &nbsp;|&nbsp;
+        <a href="/privacy_policy.html">隐私政策 Privacy</a> &nbsp;|&nbsp;
+        <a href="/support.html">技术支持 Support</a></p>
+    </div>
+</footer>
+
+</body>
+</html>
