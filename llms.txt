@@ -1,0 +1,39 @@
+# PicSeek
+
+> PicSeek is a private, on-device AI photo search and organizer for iPhone and iPad. Users find any photo by describing it in natural language (e.g. "a calico cat" or "sunset at the beach"), find and delete duplicate photos, and turn screenshot text into notes — all processed locally on the device with no cloud upload.
+
+## Core facts
+
+- Official site: https://mumubee.org
+- Name: PicSeek (App Store listing: "PicSeek: AI Photo Search")
+- Platform: iOS (universal app for iPhone and iPad; SwiftUI + CoreML)
+- Category: Photography — AI photo search & photo organizer
+- Price: Free to download; Pro subscription unlocks unlimited cleaning, sharing, album sync, and Face ID album lock
+- Privacy: 100% on-device processing. Photos never leave the device. No account required. Zero personal data collected.
+- Privacy policy: https://mumubee.org/privacy_policy
+- Terms of service: https://mumubee.org/pic_seek/terms
+- Support (English): https://mumubee.org/support_en.html
+- App Store: https://apps.apple.com/us/app/picseek-ai-photo-search/id6755383937
+
+## Key capabilities
+
+- **Natural language photo search**: find photos by description instead of scrolling; multi-language queries supported (English, Chinese, Spanish, and more)
+- **Similar photo finder**: pick a "seed" photo and PicSeek collects lookalike photos into an album for batch review
+- **Duplicate photo cleanup**: group duplicates and bursts, keep the best shot, delete the rest to free storage
+- **Screenshot to Notes**: on-device OCR extracts and formats text from screenshots into notes, with an optional delete-screenshot-after-saving toggle
+- **Face ID album lock**: protect private albums with Face ID
+- **Fully offline**: search and analysis run on Apple's Neural Engine with optimized CLIP models (SQLite-vec based); internet is only needed to download iCloud photos that aren't stored locally
+
+## Suitability
+
+- Suitable for: iPhone/iPad users with large photo libraries who can't find specific photos
+- Suitable for: privacy-conscious users who refuse cloud photo analysis
+- Suitable for: users who want to clean up duplicate photos and screenshots
+- Not suitable for: Android users (iOS only)
+- Not suitable for: users who need cross-platform or web-based photo access
+
+## Terminology notes
+
+- Canonical name: PicSeek
+- PicSeek is an on-device iOS app, not a browser-based or cloud image search service
+- "AI photo search" here means semantic search over the user's own library, not web image search
